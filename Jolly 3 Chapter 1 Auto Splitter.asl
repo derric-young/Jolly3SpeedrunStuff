@@ -1,5 +1,5 @@
-state("jolly3") {
-  int area : "jolly3.exe", 0xB39CC, 0x1F0;
+state("jolly3-v1.0.3") {
+	int area : "jolly3-v1.0.3.exe", 0xB39CC, 0x1F0;
 }
 
 start {
@@ -20,5 +20,11 @@ isLoading {
   }
   else {
     return false;
+  }
+}
+
+reset {
+  if(current.area == 28 && old.area == -1) {
+    return true;
   }
 }
